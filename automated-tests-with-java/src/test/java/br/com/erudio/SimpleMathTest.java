@@ -13,14 +13,16 @@ class SimpleMathTest {
     @Test
     @DisplayName("Test 6.2 + 2 = 8.2")
     void testSum_When_SixDotTwoIsAddedByTwo_ShouldReturnEightDotTwo() {
+        // Given - Arrange
         SimpleMath math = new SimpleMath();
         Double firstNumber = 6.2;
         Double secondNumber = 2.0;
-
-        Double result = math.sum(firstNumber, secondNumber);
-
         Double expectedValue = 8.2;
 
+        // When - Act
+        Double result = math.sum(firstNumber, secondNumber);
+
+        // Then - Assert
         assertEquals(expectedValue, result,
                 () -> firstNumber + " + " + secondNumber + " must be " + expectedValue);
         assertNotEquals(9.2, result, "The result of 6.2 + 2 don't must be 9.2");
