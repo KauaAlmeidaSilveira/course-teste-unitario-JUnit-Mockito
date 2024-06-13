@@ -1,14 +1,17 @@
 package br.com.erudio;
 
 import br.com.erudio.math.SimpleMath;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@DisplayName("Test Math Operations in SimpleMath Class")
 class SimpleMathTest {
 
     // test [System Under Test]_[Condition or State Change]_[Expected Result]
     @Test
+    @DisplayName("Test 6.2 + 2 = 8.2")
     void testSum_When_SixDotTwoIsAddedByTwo_ShouldReturnEightDotTwo() {
         SimpleMath math = new SimpleMath();
         Double firstNumber = 6.2;
@@ -25,6 +28,7 @@ class SimpleMathTest {
     }
 
     @Test
+    @DisplayName("Test 6.2 - 2 = 4.2")
     void testSubstraction() {
         SimpleMath math = new SimpleMath();
         Double firstNumber = 6.2;
@@ -41,6 +45,7 @@ class SimpleMathTest {
     }
 
     @Test
+    @DisplayName("Test 6.2 * 2 = 12.4")
     void testMultiplication() {
         SimpleMath math = new SimpleMath();
         Double firstNumber = 6.2;
@@ -57,6 +62,7 @@ class SimpleMathTest {
     }
 
     @Test
+    @DisplayName("Test 6.2 / 2 = 3.1")
     void testDivision() {
         SimpleMath math = new SimpleMath();
         Double firstNumber = 6.2;
@@ -74,11 +80,13 @@ class SimpleMathTest {
 
     // test [System Under Test]_[Condition or State Change]_[Expected Result]
     @Test
+    @DisplayName("Test division by zero")
     void testDivision_When_FirstNumberIsDevidedByZero_ShouldThrowArithmeticException() {
         fail();
     }
 
     @Test
+    @DisplayName("Test (6.2 + 2)/2 = 4.1")
     void testMean() {
         SimpleMath math = new SimpleMath();
         Double firstNumber = 6.2;
@@ -95,6 +103,7 @@ class SimpleMathTest {
     }
 
     @Test
+    @DisplayName("Test square root of 9 = 3")
     void testSquareRoot() {
         SimpleMath math = new SimpleMath();
         Double number = 9D;
