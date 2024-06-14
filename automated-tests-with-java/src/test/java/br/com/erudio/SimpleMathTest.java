@@ -1,20 +1,43 @@
 package br.com.erudio;
 
 import br.com.erudio.math.SimpleMath;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Test Math Operations in SimpleMath Class")
 class SimpleMathTest {
 
+    SimpleMath math;
+
+    @BeforeAll
+    static void setup() {
+        System.out.println("Running @BeforeAll");
+    }
+
+    @AfterAll
+    static void cleanup() {
+        System.out.println("Running @AfterAll");
+    }
+
+    @BeforeEach
+    void beforeEachMethod() {
+        math = new SimpleMath();
+        System.out.println("Running @BeforeEach");
+    }
+
+    @AfterEach
+    void afterEachMethod() {
+        System.out.println("Running @AfterEach");
+    }
+
+
     // test [System Under Test]_[Condition or State Change]_[Expected Result]
     @Test
     @DisplayName("Test 6.2 + 2 = 8.2")
     void testSum_When_SixDotTwoIsAddedByTwo_ShouldReturnEightDotTwo() {
+        System.out.println("Running test sum");
         // Given - Arrange
-        SimpleMath math = new SimpleMath();
         Double firstNumber = 6.2;
         Double secondNumber = 2.0;
         Double expectedValue = 8.2;
@@ -32,7 +55,7 @@ class SimpleMathTest {
     @Test
     @DisplayName("Test 6.2 - 2 = 4.2")
     void testSubstraction() {
-        SimpleMath math = new SimpleMath();
+        System.out.println("Running test subtraction");
         Double firstNumber = 6.2;
         Double secondNumber = 2.0;
 
@@ -49,7 +72,7 @@ class SimpleMathTest {
     @Test
     @DisplayName("Test 6.2 * 2 = 12.4")
     void testMultiplication() {
-        SimpleMath math = new SimpleMath();
+        System.out.println("Running test multiplication");
         Double firstNumber = 6.2;
         Double secondNumber = 2.0;
 
@@ -66,7 +89,7 @@ class SimpleMathTest {
     @Test
     @DisplayName("Test 6.2 / 2 = 3.1")
     void testDivision() {
-        SimpleMath math = new SimpleMath();
+        System.out.println("Running test division");
         Double firstNumber = 6.2;
         Double secondNumber = 2.0;
 
@@ -81,16 +104,32 @@ class SimpleMathTest {
     }
 
     // test [System Under Test]_[Condition or State Change]_[Expected Result]
+    //@Disabled("TODO: We need still work on it!")
     @Test
     @DisplayName("Test division by zero")
     void testDivision_When_FirstNumberIsDevidedByZero_ShouldThrowArithmeticException() {
-        fail();
+        System.out.println("Running test divisionByZero");
+        // Given
+        Double firstNumber = 6.2;
+        Double secondNumber = 0D;
+
+        var expectedMessage = "Impossible to divide by zero !!";
+
+        // Then
+        ArithmeticException actual = assertThrows(ArithmeticException.class, () -> {
+            // When
+            math.division(firstNumber, secondNumber);
+        },
+                () -> "Division by zero should throw an ArithmeticException");
+
+        assertEquals(expectedMessage, actual.getMessage(),
+                () -> "Unexpected exception message");
     }
 
     @Test
     @DisplayName("Test (6.2 + 2)/2 = 4.1")
     void testMean() {
-        SimpleMath math = new SimpleMath();
+        System.out.println("Running test mean");
         Double firstNumber = 6.2;
         Double secondNumber = 2.0;
 
@@ -107,7 +146,7 @@ class SimpleMathTest {
     @Test
     @DisplayName("Test square root of 9 = 3")
     void testSquareRoot() {
-        SimpleMath math = new SimpleMath();
+        System.out.println("Running test square root");
         Double number = 9D;
 
         Double result = math.squareRoot(number);
@@ -120,5 +159,14 @@ class SimpleMathTest {
         assertNotNull(result, "The result can't be null");
     }
 
+    // test[System Under Test]_[Condition or State Change]_[Expected Result]
+    @DisplayName("Display name")
+    @Test
+    void testABCD_When_XYZ_Should() {
+        System.out.println("Running test ABCD");
+        // Given - Arrange
+        // When - Act
+        // Then - Assert
+    }
 
 }

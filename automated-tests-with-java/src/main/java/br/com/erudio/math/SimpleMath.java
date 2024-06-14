@@ -15,7 +15,11 @@ public class SimpleMath {
     }
 
     public Double division(Double firstNumber, Double secondNumber) {
-        return firstNumber / secondNumber;
+        Double result = (firstNumber / secondNumber);
+        if (result.isInfinite()){
+            throw new ArithmeticException("Impossible to divide by zero !!");
+        }
+        return result;
     }
 
     public Double mean(Double firstNumber, Double secondNumber) {
