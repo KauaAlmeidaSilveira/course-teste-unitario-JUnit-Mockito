@@ -6,7 +6,7 @@ import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Test Math Operations in SimpleMath Class")
-class SimpleMathTest {
+class SimpleMathTestS3 {
 
     SimpleMath math;
 
@@ -117,9 +117,9 @@ class SimpleMathTest {
 
         // Then
         ArithmeticException actual = assertThrows(ArithmeticException.class, () -> {
-            // When
-            math.division(firstNumber, secondNumber);
-        },
+                    // When
+                    math.division(firstNumber, secondNumber);
+                },
                 () -> "Division by zero should throw an ArithmeticException");
 
         assertEquals(expectedMessage, actual.getMessage(),
