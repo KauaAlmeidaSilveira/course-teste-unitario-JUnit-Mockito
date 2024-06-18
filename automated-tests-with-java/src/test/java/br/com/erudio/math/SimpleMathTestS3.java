@@ -1,6 +1,5 @@
-package br.com.erudio;
+package br.com.erudio.math;
 
-import br.com.erudio.math.SimpleMath;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;

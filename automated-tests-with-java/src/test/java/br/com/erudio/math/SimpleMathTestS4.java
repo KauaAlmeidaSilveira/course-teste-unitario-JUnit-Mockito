@@ -1,14 +1,12 @@
-package br.com.erudio;
+package br.com.erudio.math;
 
-import br.com.erudio.math.SimpleMath;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Test Math Operations in SimpleMath Class")
 class SimpleMathTestS4 {
@@ -18,12 +16,13 @@ class SimpleMathTestS4 {
     @BeforeEach
     void beforeEachMethod() {
         math = new SimpleMath();
-        System.out.println("Running @BeforeEach");
     }
 
-    @AfterEach
-    void afterEachMethod() {
-        System.out.println("Running @AfterEach");
+    @ValueSource(strings = {"Kaua", "Nary", "Gleice"})
+    @ParameterizedTest
+    void testValueSource(String firstName) {
+        System.out.println(firstName);
+        assertNotNull(firstName);
     }
 
     @DisplayName("Test double division [firstNumber, secondNumber, expectedValue]")
