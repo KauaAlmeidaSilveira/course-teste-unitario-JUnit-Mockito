@@ -16,7 +16,7 @@ public class SimpleMath {
 
     public Double division(Double firstNumber, Double secondNumber) {
         Double result = (firstNumber / secondNumber);
-        if (result.isInfinite()){
+        if (result.isInfinite()) {
             throw new ArithmeticException("Impossible to divide by zero !!");
         }
         return result;
